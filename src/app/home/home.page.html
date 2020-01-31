@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="ion-padding" [formGroup]="formCreate">
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input type="text" formControlName="productName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Price</ion-label>
+      <ion-input type="text" formControlName="productPrice"></ion-input>
+    </ion-item>
+    <ion-button [disabled]="!formCreate.valid" expand="block" (click)="create()">Save</ion-button>
+  </form>
+  
+  <!-- <ion-button (click)="SaveData()">Save</ion-button> -->
+  <ion-button (click)="GetProductDetails()">Get Product Details</ion-button>
+  <ion-item>
+    NAMA | HARGA
+  </ion-item>
+  <ion-list *ngFor="let product of ProductDetails">
+    <ion-item>
+      {{product.name}} | {{product.price}}
+    </ion-item>
+    </ion-list>
+</ion-content>
